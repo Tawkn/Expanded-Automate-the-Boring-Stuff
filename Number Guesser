@@ -1,0 +1,60 @@
+# Guess a number between a ranger of numbers chosen by the user.
+# User will have 5 chances to guess the correct number.
+
+# Note for future version - scale the difficulty level based on the size of the range
+# Example: 1-10 -> you're only allowed 2 guesses; 1-100 -> you're allowed 20 guesses; etc.
+
+
+
+import random
+
+
+
+###################INSTRUCTIONS###########################
+
+print('Choose your difficulty by choosing a range of numbers.')
+print('Example: 1-10, 1-25, 200-500, etc.')
+print('What is your first number?')
+a = int(input())
+print('What is your second number?')
+z = int(input())
+
+secretNumber = random.randint(a, z)
+
+
+
+##################VERIFICATION - DOES NOT CURRENTLY VERIFY IF A NON-INTEGER WAS ENTERED############
+
+def confirmInput(guessNumber):
+    n = guessNumber
+    if n < a or n > z:
+            print('That is not a valid number. ', end='')
+    else:
+        return(confirmInput)
+
+
+
+#################MAIN CODE###########################       
+
+print('Alright. Select a number between ' + str(a) + ' & ' + str(z) + '. You have only 5 chances.')
+    
+for guessesTaken in range(5):
+    guessNumber = int(input())
+    confirmInput(guessNumber)
+    
+    if guessNumber > secretNumber:
+        print('You are too high.')
+    elif guessNumber < secretNumber:
+        print('You are too low.')
+    else:
+        break
+
+if guessNumber == secretNumber:
+    print('Good job!')
+else:
+    print('Sorry! The secret number was ' + str(secretNumber))
+
+
+###########PROHIBITING TERMINAL FROM CLOSING AUTOMATICALLY#############
+
+input("prompt: ")
