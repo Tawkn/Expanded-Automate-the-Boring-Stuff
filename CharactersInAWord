@@ -1,0 +1,12 @@
+#This program will calculate how many characters are in a word
+#   or name up to 5 times.
+#to increase loop, change range(#)
+
+def characters(name):
+    numeric = len(name)
+    return numeric
+
+for names in range(5):       
+    print('Type a word for total number of characters.')
+    name = input()
+    print(characters(name))
